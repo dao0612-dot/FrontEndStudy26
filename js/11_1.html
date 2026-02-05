@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+ <title>DOM 첫 만남</title>
+</head>
+<body>
+ <h1 id="title">DOM 학습 중...</h1>
+ <p id="message">여기에 메시지가 나타날 예정입니다.</p>
+ <button onclick="changeContent()">마법 버튼</button>
+
+ <script>
+ function changeContent() {
+ // DOM을 통해 요소 찾기
+ const title = document.getElementById('title');
+ const message = document.getElementById('message');
+
+ // 내용 변경하기
+ title.textContent = ' DOM 마스터가 되었습니다!';
+ message.textContent = '버튼을 클릭해서 내용이 바뀌었어요!';
+ message.style.color = 'blue';
+ message.style.fontSize = '18px';
+ }
+ </script>
+</body>
+</html>

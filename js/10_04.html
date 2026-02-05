@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  function createCounter() {
+ let count = 0; // 외부에서 직접 접근할 수 없는 '비밀' 변수
+
+ return function() {
+ count++; // 클로저를 통해 count에 접근
+ return count;
+ };
+}
+
+let counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+
+
+
+</script>
+
+</body>
+</html>

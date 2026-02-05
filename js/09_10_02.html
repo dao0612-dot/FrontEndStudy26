@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  let globalVar = "전역 변수";
+
+function outerFunction() {
+ let outerVar = "외부 함수 변수";
+
+ function innerFunction() {
+ let innerVar = "내부 함수 변수";
+
+ console.log(globalVar); // 전역에서 찾음
+ console.log(outerVar); // 외부 함수에서 찾음
+ console.log(innerVar); // 현재 함수에서 찾음
+ }
+
+ innerFunction();
+ // console.log(innerVar); // 에러! 접근 불가능
+}
+
+outerFunction();
+
+
+
+</script>
+
+</body>
+</html>

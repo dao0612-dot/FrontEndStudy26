@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    // 기본적인 객체 메소드 정의
+const user = {
+ name: "김개발",
+ age: 20,
+ email: "kimdev@example.com",
+
+ // 메소드 정의 방법 1: 함수 표현식
+ introduce: function() {
+ return `안녕하세요! 저는 ${this.name}입니다.`;
+ },
+
+ // 메소드 정의 방법 2: 단축 문법 (ES6+)
+ getAge() {
+ return `저는 ${this.age}살입니다.`;
+ },
+
+ // 메소드 정의 방법 3: 화살표 함수 (주의: this 동작이 다름)
+ getEmail: () => {
+ // 화살표 함수에서는 this가 제대로 동작하지 않음
+ return "이메일 정보";
+ }
+};
+
+
+    // 사용자 정보를 관리하는 객체 생성
+const userManager = {
+ users: [],
+
+ // 사용자 추가 메소드
+ addUser(name, email) {
+ const newUser = {
+ id: this.users.length + 1,
+ name: name,
+ email: email,
+ createdAt: new Date()
+ };
+ this.users.push(newUser);
+ console.log(`${name}님이 등록되었습니다.`);
+ return this;
+ },
+
+ // 사용자 조회 메소드
+ findUser(name) {
+ return this.users.find(user => user.name === name);
+ },
+
+ // 전체 사용자 수 조회
+ getUserCount() {
+ return this.users.length;
+ },
+
+ // 사용자 목록 출력
+ listUsers() {
+ console.log("=== 사용자 목록 ===");
+ this.users.forEach(user => {
+ console.log(`${user.id}. ${user.name} (${user.email})`);
+ });
+ return this;
+ }
+};
+
+// 사용 예시
+userManager
+ .addUser("김개발", "kim@dev.com")
+ .addUser("이디자인", "lee@design.com")
+ .listUsers();
+
+console.log("총 사용자 수:", userManager.getUserCount());
+
+
+</script>
+
+</body>
+</html>
